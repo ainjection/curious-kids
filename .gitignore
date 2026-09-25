@@ -1,0 +1,4 @@
+extract.py
+chk-*.png
+s-*.png
+__pycache__/
