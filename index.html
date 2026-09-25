@@ -14,7 +14,8 @@
 <style>
 :root{--sky:#2f7bf5;--sky2:#5aa0ff;--sun:#ffc93c;--tomato:#ff5d4a;--lime:#4cc76b;--grape:#8b5cf6;--ink:#1d2340;--muted:#5c6485;--paper:#fffdf7;--bg:#eef5ff}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
+main,header,section{overflow-x:clip}
 body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden}
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
@@ -173,7 +174,8 @@ footer a{color:var(--muted)}
 /* ocean */
 #whatif{position:relative;overflow:hidden;background:linear-gradient(#5b2ea8 0%,#3d2c9a 45%,#1b4f8f 72%,#0f3a6b 100%);color:#fff;padding-top:200px;padding-bottom:150px}
 #whatif .head p{color:#e4dbff}
-.strip{position:absolute;left:0;top:0;display:flex;gap:10px;width:max-content;padding:10px 0;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.25);animation:slide 90s linear infinite;pointer-events:none;z-index:1}
+.strip{position:absolute;left:0;top:0;display:flex;gap:10px;width:max-content;padding:10px 0;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.25);animation:slide 90s linear infinite;z-index:1}
+.strip:hover{animation-play-state:paused}
 .strip img{height:130px;border-radius:10px}
 .waves{position:absolute;left:0;bottom:0;width:200%;height:130px;animation:wave 12s linear infinite;pointer-events:none}
 .waves.b{opacity:.6;animation-duration:18s;bottom:12px}
@@ -244,6 +246,28 @@ footer a{color:var(--muted)}
 .stickers span svg{width:44px}
 @media(max-width:640px){.meadow{height:360px}.animal{width:130px}.bubble{width:170px;font-size:1rem}.sunface{width:80px;height:80px}.sunface:before{left:24px;top:30px}.sunface:after{right:24px;top:30px}.sunface i{left:24px;top:44px;width:32px}}
 
+
+.yuck{position:absolute;z-index:1;cursor:pointer;background:none;border:0;padding:0;transition:transform .15s}
+.yuck:hover{transform:scale(1.08) rotate(-3deg)}
+.yuck:active{transform:scale(.92)}
+.yuck .tip{position:absolute;left:50%;top:-26px;transform:translateX(-50%);background:#7be08c;color:#0f2a17;font-weight:900;font-size:.72rem;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.goo{animation:wob2 2.2s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes wob2{50%{transform:scale(1.08,.9)}}
+.stink{animation:stink 2s ease-in-out infinite;opacity:.8}
+@keyframes stink{0%{transform:translateY(8px);opacity:0}50%{opacity:.8}100%{transform:translateY(-16px);opacity:0}}
+.yuck.boom{animation:boom .5s ease}
+@keyframes boom{30%{transform:scale(1.25) rotate(8deg)}60%{transform:scale(.9) rotate(-6deg)}}
+.goorun{position:absolute;right:0;top:110px;width:70px;height:420px;pointer-events:none}
+.strip a{display:block;flex:none}
+.strip img{transition:transform .2s}
+.strip a:hover img{transform:translateY(4px) scale(1.04)}
+#sampler{background:linear-gradient(#fff3d6,#ffe2a8)}
+.samp{max-width:900px;margin:0 auto;background:#fff;border-radius:28px;padding:26px;display:grid;gap:22px;align-items:center;box-shadow:0 12px 0 rgba(0,0,0,.08)}
+@media(min-width:760px){.samp{grid-template-columns:1fr 1.2fr}}
+.samp .covers{display:flex;justify-content:center}
+.samp .covers img{width:92px;margin:0 -10px;border-radius:6px;box-shadow:0 8px 16px rgba(0,0,0,.25)}
+.samp .covers img:nth-child(odd){transform:rotate(-6deg)}.samp .covers img:nth-child(even){transform:rotate(6deg) translateY(10px)}
+@media (max-width:640px){.yuck.hide-sm{display:none}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -318,6 +342,16 @@ footer a{color:var(--muted)}
 
 <section class="blk" id="gross">
   <div class="slime" aria-hidden="true"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 0 H1200 V40 Q1150 60 1100 40 Q1050 20 1000 40 Q950 60 900 40 Q850 20 800 40 Q750 60 700 40 Q650 20 600 40 Q550 60 500 40 Q450 20 400 40 Q350 60 300 40 Q250 20 200 40 Q150 60 100 40 Z" fill="#7be08c"/><g fill="#7be08c"><path class="drip" style="animation-delay:-0s" d="M140 38 Q151 110 162 38Z"/><path class="drip" style="animation-delay:-1s" d="M380 38 Q391 90 402 38Z"/><path class="drip" style="animation-delay:-2s" d="M640 38 Q651 120 662 38Z"/><path class="drip" style="animation-delay:-0.5s" d="M880 38 Q891 80 902 38Z"/><path class="drip" style="animation-delay:-1.6s" d="M1080 38 Q1091 105 1102 38Z"/></g></svg></div>
+  <svg class="goorun" viewBox="0 0 70 420" preserveAspectRatio="none" aria-hidden="true"><path class="drip" d="M20 0 Q14 180 26 300 Q30 360 34 400 Q40 420 46 400 Q52 330 50 220 Q48 90 56 0Z" fill="#9ee37a" opacity=".85"/><circle cx="36" cy="408" r="12" fill="#9ee37a"/></svg>
+  <button class="yuck" id="yToilet" type="button" style="left:2%;top:470px;width:120px" aria-label="A very dirty toilet. Click for a flush"><span class="tip">flush me!</span>
+    <svg viewBox="0 0 120 150"><rect x="20" y="0" width="80" height="54" rx="8" fill="#eef2f0" stroke="#3a4a3f" stroke-width="4"/><rect x="84" y="12" width="14" height="6" rx="3" fill="#9aa"/>
+    <path d="M10 60 H110 Q110 110 60 118 Q10 110 10 60Z" fill="#fff" stroke="#3a4a3f" stroke-width="4"/><ellipse cx="60" cy="64" rx="44" ry="10" fill="#8a6b3a"/><path d="M30 70 Q40 90 34 104 M88 74 Q80 92 86 104" stroke="#8a6b3a" stroke-width="5" fill="none"/>
+    <path d="M40 118 H80 L74 150 H46Z" fill="#fff" stroke="#3a4a3f" stroke-width="4"/><g class="stink" stroke="#9ee37a" stroke-width="4" fill="none"><path d="M40 40 Q34 30 40 20 Q46 10 40 0"/><path d="M78 40 Q72 30 78 20 Q84 10 78 0"/></g></svg></button>
+  <button class="yuck hide-sm" id="yGoo" type="button" style="left:24%;bottom:2px;width:110px" aria-label="A blob of goo. Click to squish it"><span class="tip">squish me!</span>
+    <svg viewBox="0 0 130 80"><path class="goo" d="M6 76 Q0 40 30 36 Q34 6 62 12 Q92 0 100 30 Q128 34 124 76Z" fill="#9ee37a" stroke="#2e7d3a" stroke-width="4"/><circle cx="46" cy="44" r="7" fill="#fff"/><circle cx="48" cy="45" r="3.5" fill="#123"/><circle cx="78" cy="40" r="9" fill="#fff"/><circle cx="80" cy="42" r="4.5" fill="#123"/><path d="M52 62 Q64 70 76 60" stroke="#2e7d3a" stroke-width="4" fill="none"/></svg></button>
+  <button class="yuck hide-sm" id="ySock" type="button" style="left:13%;top:150px;width:70px" aria-label="A smelly sock. Click it if you dare"><span class="tip">sniff me!</span>
+    <svg viewBox="0 0 84 110"><path d="M26 0 H58 V64 Q58 76 70 82 Q84 90 78 104 Q72 112 50 106 Q26 100 26 74Z" fill="#d9d2b5" stroke="#5a5238" stroke-width="4"/><path d="M26 16 H58" stroke="#b3122e" stroke-width="7"/><circle cx="40" cy="60" r="6" fill="#8a7a4a"/><circle cx="50" cy="88" r="7" fill="#8a7a4a"/>
+    <g class="stink" stroke="#9ee37a" stroke-width="4" fill="none"><path d="M8 50 Q2 40 8 30 Q14 20 8 10"/></g></svg></button>
   <div id="bubs" aria-hidden="true"></div>
   <svg class="fly" style="left:12%;top:160px" viewBox="0 0 40 30" aria-hidden="true"><ellipse cx="20" cy="18" rx="9" ry="7" fill="#111"/><ellipse cx="12" cy="8" rx="8" ry="5" fill="rgba(255,255,255,.7)"/><ellipse cx="28" cy="8" rx="8" ry="5" fill="rgba(255,255,255,.7)"/></svg><svg class="fly" style="right:10%;top:300px;animation-delay:-3s" viewBox="0 0 40 30" aria-hidden="true"><ellipse cx="20" cy="18" rx="9" ry="7" fill="#111"/><ellipse cx="12" cy="8" rx="8" ry="5" fill="rgba(255,255,255,.7)"/><ellipse cx="28" cy="8" rx="8" ry="5" fill="rgba(255,255,255,.7)"/></svg>
   <div class="wrap" style="position:relative">
@@ -369,6 +403,18 @@ footer a{color:var(--muted)}
   </div></div>
 </section>
 
+<section class="blk" id="sampler">
+  <div class="wrap">
+    <div class="samp">
+      <div class="covers"><img src="img/cover-big-book-of-why-little-ones.jpg" alt=""><img src="img/cover-big-book-of-why-curious-kids.jpg" alt=""><img src="img/cover-big-book-of-why.jpg" alt=""><img src="img/cover-gross-book-of-why.jpg" alt=""><img src="img/cover-big-book-of-what-if.jpg" alt=""></div>
+      <div><span class="kick" style="background:var(--tomato);color:#fff;display:inline-block;font-weight:900;font-size:.8rem;letter-spacing:.12em;padding:5px 12px;border-radius:999px">FREE SAMPLER</span>
+        <h2 style="font-size:2.2rem;margin:10px 0 6px">25 pages to print at home</h2>
+        <p style="color:var(--muted);margin-bottom:16px">Five real pages from every book in the club, from little ones' first whys to the grossest facts. No email, just download and print.</p>
+        <a class="btn tom" href="sampler/curious-kids-sampler.pdf" download data-free="curious-sampler">Download the free sampler (PDF)</a></div>
+    </div>
+  </div>
+</section>
+
 <section class="blk" id="books">
   <div class="wrap">
     <div class="head"><span class="kick" style="background:var(--tomato)">The club library</span><h2>Want every answer?</h2><p>Each book is packed with questions like these, answered properly and drawn beautifully.</p></div>
@@ -400,7 +446,7 @@ footer a{color:var(--muted)}
   const BG = ['ck8','ck14','ck16','ck20','ck22','ck28','ck40','ck66','ck76','ck78','ck80','ck82','wi6','wi16','wi26','wi36','wi46','wi56','wi66','wi76'];
   const shuf = a => [...a].sort(() => Math.random() - .5);
   ['#r1', '#r2', '#r3'].forEach(r => { const l = shuf(BG).slice(0, 8); $(r).innerHTML = [...l, ...l].map(b => `<img src="bg/${b}.jpg" alt="" loading="lazy">`).join(''); });
-  const WI = BG.filter(b => b.startsWith('wi')); $('#wstrip').innerHTML = [...WI, ...WI].map(b => `<img src="bg/${b}.jpg" alt="">`).join('');
+  const WI = BG.filter(b => b.startsWith('wi')); $('#wstrip').innerHTML = [...WI, ...WI].map(b => `<a href="https://www.amazon.com/dp/B0HJND6SVK" target="_blank" rel="noopener" aria-label="See The Big Book of What If on Amazon"><img src="bg/${b}.jpg" alt=""></a>`).join('');
   const FAN = [['big-book-of-why-little-ones', 'B0HKBW1Q8G'], ['gross-book-of-why', 'B0HHZTLVH3'], ['big-book-of-why', 'B0HJDYLGG1'], ['big-book-of-what-if', 'B0HJND6SVK'], ['big-book-of-why-curious-kids', 'B0HKDKKWJ2']];
   $('#fan').innerHTML = FAN.map(([s, a], i) => `<a href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener" style="transform:rotate(${(i - 2) * 8}deg) translateY(${Math.abs(i - 2) * 10}px);animation-delay:${-i * .5}s"><img src="img/cover-${s}.jpg" alt="${s.replace(/-/g, ' ')} cover"></a>`).join('');
   const cv = $('#stars'), c2 = cv.getContext('2d'); let st = [];
@@ -427,6 +473,18 @@ footer a{color:var(--muted)}
   $('#nextWhy').addEventListener('click', () => { wi = Math.floor(Math.random() * D.why.length); showWhy(wi); snd(660, .08); });
   $('#todayWhy').addEventListener('click', () => { wi = day % D.why.length; showWhy(wi); });
   showWhy(wi);
+
+
+  // gross extras: noise-based sound effects
+  const noise = (dur, f0, f1, q, vol) => { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); const n = ac.createBuffer(1, ac.sampleRate * dur, ac.sampleRate), d = n.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / d.length);
+    const src = ac.createBufferSource(); src.buffer = n; const bp = ac.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = q;
+    bp.frequency.setValueAtTime(f0, ac.currentTime); bp.frequency.exponentialRampToValueAtTime(f1, ac.currentTime + dur);
+    const g = ac.createGain(); g.gain.value = vol; src.connect(bp).connect(g).connect(ac.destination); src.start(); } catch (e) {} };
+  const boom = el => { el.classList.remove('boom'); void el.offsetWidth; el.classList.add('boom'); };
+  $('#yToilet').addEventListener('click', e => { boom(e.currentTarget); noise(1.8, 2400, 180, 1.2, .9); setTimeout(() => snd(300, .6, 'sine', 90), 900); });
+  $('#yGoo').addEventListener('click', e => { boom(e.currentTarget); noise(.35, 500, 120, 4, 1); snd(180, .3, 'sine', 60); });
+  $('#ySock').addEventListener('click', e => { boom(e.currentTarget); snd(110, .7, 'sawtooth', 55); setTimeout(() => snd(95, .4, 'square', 50), 250); });
 
   // gross-o-meter
   let gi = Math.floor(Math.random() * D.gross.length);
