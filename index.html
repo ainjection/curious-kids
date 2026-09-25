@@ -269,7 +269,7 @@ footer a{color:var(--muted)}
              ['gross-book-of-why', 'B0HHZTLVH3', "The Curious Kid's Gross Book of Why", '150 revolting questions, ages 6 to 12'],
              ['big-book-of-what-if', 'B0HJND6SVK', 'The Big Book of What If?', '100 adventures, full colour'],
              ['big-book-of-why-little-ones', 'B0HKBW1Q8G', 'Big Book of Why for Little Ones', 'Ages 2 to 5, full colour'],
-             ['big-book-of-why-curious-kids', '', 'Big Book of Why for Curious Kids', '100 questions, full colour']];
+             ['big-book-of-why-curious-kids', 'B0HKDKKWJ2', 'Big Book of Why for Curious Kids', '100 questions, full colour']];
   $('#shelf').innerHTML = B.map(([s, a, n, w]) => `<div class="book"><img src="img/cover-${s}.jpg" alt="${n} cover" loading="lazy"><b>${n}</b><span>${w}</span>
     ${a ? `<a class="btn tom" href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener">See it on Amazon</a>` : `<a class="btn ghost" href="https://ainjection.github.io/gentle-bookshop/books/${s}.html">Look inside</a>`}</div>`).join('');
 })();
