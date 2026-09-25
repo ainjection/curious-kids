@@ -268,6 +268,16 @@ footer a{color:var(--muted)}
 .samp .covers img{width:92px;margin:0 -10px;border-radius:6px;box-shadow:0 8px 16px rgba(0,0,0,.25)}
 .samp .covers img:nth-child(odd){transform:rotate(-6deg)}.samp .covers img:nth-child(even){transform:rotate(6deg) translateY(10px)}
 @media (max-width:640px){.yuck.hide-sm{display:none}}
+
+.ufo{position:absolute;left:0;top:0;width:130px;z-index:0;cursor:pointer;will-change:transform}
+.ufo svg{width:100%;overflow:visible}
+#today .wrap .flip,#today .wrap .ctrls,#today .wrap .sell{pointer-events:auto}
+.ufo .beam{opacity:0;transition:opacity .2s}
+.ufo.zap .beam{opacity:.75}
+.ufo .lights circle{animation:blink 1s steps(2) infinite}
+.ufo .lights circle:nth-child(2n){animation-delay:-.5s}
+@keyframes blink{50%{fill:#fff6a8}}
+@media(max-width:640px){.ufo{width:84px}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -321,7 +331,8 @@ footer a{color:var(--muted)}
 <section class="blk" id="today">
   <canvas id="stars" aria-hidden="true"></canvas><div class="planet" aria-hidden="true"></div>
   <svg class="rocket" viewBox="0 0 90 40" aria-hidden="true"><path d="M10 20 Q40 0 80 20 Q40 40 10 20Z" fill="#f3f6ff"/><circle cx="55" cy="20" r="6" fill="#5aa0ff"/><path d="M10 20 L0 10 L4 20 L0 30Z" fill="#ff5d4a"/></svg>
-  <div class="wrap" style="position:relative">
+  <div id="ufos" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:1;pointer-events:none">
     <div class="head"><span class="kick" style="background:var(--sky)">Why of the day</span><h2>Can you guess the answer?</h2><p>Think about it first, then tap the card to flip it.</p></div>
     <div class="duo"><div>
     <div class="flip" id="flip" role="button" tabindex="0" aria-label="Flip the card to see the answer">
@@ -572,6 +583,26 @@ footer a{color:var(--muted)}
       a.style.transform = `translateX(${a.x.toFixed(1)}px)`; });
     if (!reduce) requestAnimationFrame(walk); };
   if (reduce) animals.forEach((a, k) => { a.x = 60 + k * (mw.clientWidth - 240) / 4; a.style.transform = `translateX(${a.x}px)`; }); else requestAnimationFrame(walk);
+
+
+  // UFOs zooming around the why-of-the-day sky
+  const UFO = `<svg viewBox="-70 -60 140 130"><path class="beam" d="M-26 20 L-50 70 H50 L26 20Z" fill="#b8f5ff"/>
+<path d="M-30 -4 Q-30 -48 0 -50 Q30 -48 30 -4Z" fill="rgba(190,235,255,.55)" stroke="#e8f8ff" stroke-width="3"/>
+<g><ellipse cx="0" cy="-14" rx="16" ry="18" fill="COL"/><path d="M-6 -30 L-12 -44 M6 -30 L12 -44" stroke="COL" stroke-width="4" stroke-linecap="round"/><circle cx="-12" cy="-45" r="4" fill="#ffd23f"/><circle cx="12" cy="-45" r="4" fill="#ffd23f"/>
+<ellipse cx="-6" cy="-17" rx="4" ry="6" fill="#1d2340"/><ellipse cx="6" cy="-17" rx="4" ry="6" fill="#1d2340"/><circle cx="-4.5" cy="-19" r="1.6" fill="#fff"/><circle cx="7.5" cy="-19" r="1.6" fill="#fff"/><path d="M-6 -6 Q0 0 6 -6" stroke="#1d2340" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+<ellipse cx="0" cy="4" rx="64" ry="18" fill="#9aa8c8" stroke="#1d2340" stroke-width="3"/><ellipse cx="0" cy="-1" rx="46" ry="9" fill="#c9d3ea"/>
+<g class="lights" fill="#ff5d4a"><circle cx="-44" cy="9" r="4.5"/><circle cx="-22" cy="9" r="4.5"/><circle cx="0" cy="9" r="4.5"/><circle cx="22" cy="9" r="4.5"/><circle cx="44" cy="9" r="4.5"/></g></svg>`;
+  const sky = $('#today');
+  const ufos = ['#7be08c', '#f7a8d8', '#ffc93c'].map((c, i) => { const u = document.createElement('div'); u.className = 'ufo'; u.innerHTML = UFO.replace(/COL/g, c); $('#ufos').appendChild(u);
+    u.p = i * 2.1; u.sp = .35 + i * .12; u.addEventListener('click', () => { u.classList.add('zap'); snd(900, .5, 'sine', 300); setTimeout(() => u.classList.remove('zap'), 700); u.sp *= 2.5; setTimeout(() => u.sp /= 2.5, 1500); }); return u; });
+  let ut = 0, last = performance.now();
+  const fly = now => { const dt = Math.min(50, now - last) / 1000; last = now; const W = sky.clientWidth, H = sky.clientHeight;
+    ufos.forEach((u, i) => { u.p += dt * u.sp; const t = u.p;
+      const x = (Math.sin(t * 0.9 + i) * .45 + .5) * (W - 140) + Math.sin(t * 3.1) * 30;
+      const y = (Math.sin(t * 1.3 + i * 2) * .42 + .5) * (H - 160) + Math.cos(t * 2.3) * 20;
+      u.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${(Math.cos(t * 0.9 + i) * 14).toFixed(1)}deg)`; });
+    if (!reduce) requestAnimationFrame(fly); };
+  requestAnimationFrame(fly);
 
   // club card
   const RANKS = [[0, 'New member'], [3, 'Question Cub'], [8, 'Curious Cat'], [15, 'Fact Finder'], [30, 'Brainbox'], [60, 'Genius Explorer']];
