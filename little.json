@@ -1,0 +1,112 @@
+{
+"elephant": [
+{
+"q": "Why do elephants have trunks?",
+"a": "A trunk is a long nose and top lip joined together. Elephants use it to breathe, smell, drink and pick things up.",
+"img": "little/elephant-8.jpg"
+},
+{
+"q": "Why do elephants have big ears?",
+"a": "Big floppy ears let heat escape, keeping an elephant cool in hot sun. Ears also help elephants hear sounds far away.",
+"img": "little/elephant-9.jpg"
+},
+{
+"q": "Why do elephants spray dust on themselves?",
+"a": "Dust and mud make a cool coat that stops sunburn and keeps bugs away. Elephants toss it on with their trunks.",
+"img": "little/elephant-10.jpg"
+},
+{
+"q": "Why do elephants never forget?",
+"a": "Elephants have very good memories for faces, places and family. Remembering where water is helps a whole herd survive.",
+"img": "little/elephant-11.jpg"
+}
+],
+"lion": [
+{
+"q": "Why do lions have manes?",
+"a": "A big furry mane makes a lion look bigger and stronger to other lions. It also keeps his neck safe when lions play fight.",
+"img": "little/lion-1.jpg"
+},
+{
+"q": "Why do lions sleep so much?",
+"a": "Hunting takes lots of energy, so a lion naps to save it up. Most lions sleep for a big part of the day.",
+"img": "little/lion-2.jpg"
+},
+{
+"q": "Why do lions live in groups?",
+"a": "A lion family is called a pride. Living together helps them hunt, share food and look after the cubs.",
+"img": "little/lion-3.jpg"
+},
+{
+"q": "Why do lions roar so loudly?",
+"a": "A roar can be heard far across the land. It warns other lions that this space already belongs to someone.",
+"img": "little/lion-4.jpg"
+}
+],
+"giraffe": [
+{
+"q": "Why do giraffes have long necks?",
+"a": "A long neck helps a giraffe reach juicy leaves at the top of tall trees. It also helps them spot danger from far away.",
+"img": "little/giraffe-12.jpg"
+},
+{
+"q": "Why do giraffes have long tongues?",
+"a": "A long dark tongue can curl round thorny branches without getting hurt. It grabs leaves that other animals cannot reach.",
+"img": "little/giraffe-13.jpg"
+},
+{
+"q": "Why do giraffes sleep standing up?",
+"a": "Standing lets a giraffe jump up fast if danger comes near. Giraffes only need a little sleep, often in short naps.",
+"img": "little/giraffe-14.jpg"
+},
+{
+"q": "Why do giraffes have small horns?",
+"a": "Both boy and girl giraffes have two furry bumps on their heads. They use them to gently bump each other when play fighting.",
+"img": "little/giraffe-15.jpg"
+}
+],
+"zebra": [
+{
+"q": "Why do zebras have stripes?",
+"a": "Every zebra has its own pattern of stripes, like a fingerprint. Stripes may also confuse hungry lions by blurring together in a running herd.",
+"img": "little/zebra-16.jpg"
+},
+{
+"q": "Why do zebras live in herds?",
+"a": "A big group has many eyes watching for danger, so zebras feel safer together. Herds also help zebras find water and grass.",
+"img": "little/zebra-17.jpg"
+},
+{
+"q": "Why do zebras have short manes?",
+"a": "A short stiff mane stands up along their neck and does not flop in their eyes. It still helps them show their mood.",
+"img": "little/zebra-18.jpg"
+},
+{
+"q": "Why do baby zebras stay close to mum?",
+"a": "A newborn foal learns its mother's own stripe pattern within days, so it never loses her in a big herd. Staying close also keeps it safe from lions.",
+"img": "little/zebra-19.jpg"
+}
+],
+"monkey": [
+{
+"q": "Why do monkeys live in trees?",
+"a": "Trees keep monkeys safe from animals that cannot climb. Branches also give them fruit, leaves and a comfy place to nap.",
+"img": "little/monkey-20.jpg"
+},
+{
+"q": "Why do monkeys have tails?",
+"a": "Many monkeys use their tail like a spare hand for gripping branches. A good grip means they will not fall while climbing high.",
+"img": "little/monkey-21.jpg"
+},
+{
+"q": "Why do monkeys groom each other?",
+"a": "Picking through fur removes bugs and dirt, and it feels nice too. Grooming is also how monkey friends and families show they care.",
+"img": "little/monkey-22.jpg"
+},
+{
+"q": "Why do monkeys chatter and screech?",
+"a": "Loud calls warn the whole troop when danger like a snake or eagle is near. Different calls can mean different kinds of danger.",
+"img": "little/monkey-23.jpg"
+}
+]
+}
