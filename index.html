@@ -458,8 +458,8 @@ footer a{color:var(--muted)}
   const shuf = a => [...a].sort(() => Math.random() - .5);
   ['#r1', '#r2', '#r3'].forEach(r => { const l = shuf(BG).slice(0, 8); $(r).innerHTML = [...l, ...l].map(b => `<img src="bg/${b}.jpg" alt="" loading="lazy">`).join(''); });
   const WI = BG.filter(b => b.startsWith('wi')); $('#wstrip').innerHTML = [...WI, ...WI].map(b => `<a href="https://www.amazon.com/dp/B0HJND6SVK" target="_blank" rel="noopener" aria-label="See The Big Book of What If on Amazon"><img src="bg/${b}.jpg" alt=""></a>`).join('');
-  const FAN = [['big-book-of-why-little-ones', 'B0HKBW1Q8G'], ['gross-book-of-why', 'B0HHZTLVH3'], ['big-book-of-why', 'B0HJDYLGG1'], ['big-book-of-what-if', 'B0HJND6SVK'], ['big-book-of-why-curious-kids', 'B0HKDKKWJ2']];
-  $('#fan').innerHTML = FAN.map(([s, a], i) => `<a href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener" style="transform:rotate(${(i - 2) * 8}deg) translateY(${Math.abs(i - 2) * 10}px);animation-delay:${-i * .5}s"><img src="img/cover-${s}.jpg" alt="${s.replace(/-/g, ' ')} cover"></a>`).join('');
+  const FAN = [['big-book-of-why-little-ones', 'B0HKBW1Q8G'], ['gross-book-of-why', 'B0HHZTLVH3'], ['big-book-of-why', 'B0HJDYLGG1'], ['big-book-of-what-if', 'B0HJND6SVK'], ['big-book-of-why-curious-kids', 'B0HKDKKWJ2'], ['bug-facts', 'B0HJP8829L']];
+  $('#fan').innerHTML = FAN.map(([s, a], i) => `<a href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener" style="transform:rotate(${(i - 2.5) * 8}deg) translateY(${Math.abs(i - 2.5) * 10}px);animation-delay:${-i * .5}s"><img src="img/cover-${s}.jpg" alt="${s.replace(/-/g, ' ')} cover"></a>`).join('');
   const cv = $('#stars'), c2 = cv.getContext('2d'); let st = [];
   const size = () => { cv.width = cv.offsetWidth; cv.height = cv.offsetHeight; st = [...Array(Math.round(cv.width * cv.height / 3500))].map(() => ({ x: Math.random() * cv.width, y: Math.random() * cv.height, r: Math.random() * 1.6 + .3, p: Math.random() * 6.3 })); };
   size(); addEventListener('resize', size);
@@ -618,8 +618,9 @@ footer a{color:var(--muted)}
              ['gross-book-of-why', 'B0HHZTLVH3', "The Curious Kid's Gross Book of Why", '150 revolting questions, ages 6 to 12'],
              ['big-book-of-what-if', 'B0HJND6SVK', 'The Big Book of What If?', '100 adventures, full colour'],
              ['big-book-of-why-little-ones', 'B0HKBW1Q8G', 'Big Book of Why for Little Ones', 'Ages 2 to 5, full colour'],
-             ['big-book-of-why-curious-kids', 'B0HKDKKWJ2', 'Big Book of Why for Curious Kids', '100 questions, full colour']];
-  const RIB = {'big-book-of-why': 'Bestseller', 'gross-book-of-why': 'Kids love it', 'big-book-of-why-little-ones': 'Ages 2 to 5', 'big-book-of-why-curious-kids': 'New', 'big-book-of-what-if': 'Full colour'};
+             ['big-book-of-why-curious-kids', 'B0HKDKKWJ2', 'Big Book of Why for Curious Kids', '100 questions, full colour'],
+             ['bug-facts', 'B0HJP8829L', '500 Gross and Amazing Bug Facts', '500 bug facts, ages 5 to 10']];
+  const RIB = {'big-book-of-why': 'Bestseller', 'gross-book-of-why': 'Kids love it', 'big-book-of-why-little-ones': 'Ages 2 to 5', 'big-book-of-why-curious-kids': 'New', 'big-book-of-what-if': 'Full colour', 'bug-facts': 'New'};
   $('#shelf').innerHTML = B.map(([s, a, n, w]) => `<div class="book"><span class="rib">${RIB[s]}</span><img src="img/cover-${s}.jpg" alt="${n} cover" loading="lazy"><b>${n}</b><span>${w}</span>
     ${a ? `<a class="btn tom" href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener">See it on Amazon</a>` : `<a class="btn ghost" href="https://ainjection.github.io/gentle-bookshop/books/${s}.html">Look inside</a>`}</div>`).join('');
 })();
