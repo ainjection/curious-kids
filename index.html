@@ -324,7 +324,7 @@ footer a{color:var(--muted)}
     </div>
     <aside class="sell" style="margin-top:40px"><div class="sticker" style="background:var(--sky)">1,000 answers</div><div class="cv"><img src="img/cover-big-book-of-why-little-ones.jpg" alt="Big Book of Why for Little Ones cover"></div>
       <h3>Big Book of Why for Little Ones</h3><ul><li>1,000 questions little ones ask</li><li>Short answers to read aloud</li><li>A bright picture for every one</li></ul>
-      <a class="btn tom" href="https://www.amazon.com/dp/B0HKBW1Q8G" target="_blank" rel="noopener">Get the book</a></aside>
+      <a class="btn tom" href="https://www.amazon.com/dp/B0HKBW1Q8G?tag=gentlebooksho-20" target="_blank" rel="noopener">Get the book</a></aside>
   </div></div></div>
 </section>
 
@@ -339,14 +339,14 @@ footer a{color:var(--muted)}
       <div class="in">
         <div class="face front"><div class="big" id="fq">Why is the sky blue?</div><div class="tap">Tap to find out</div></div>
         <div class="face back"><div class="row"><img id="fimg" alt=""><div><div class="q" id="fq2"></div><p class="a" id="fa"></p></div></div>
-          <div class="src"><span>From The Big Book of Why</span><a class="btn tom" href="https://www.amazon.com/dp/B0HJDYLGG1" target="_blank" rel="noopener">See the book</a></div></div>
+          <div class="src"><span>From The Big Book of Why</span><a class="btn tom" href="https://www.amazon.com/dp/B0HJDYLGG1?tag=gentlebooksho-20" target="_blank" rel="noopener">See the book</a></div></div>
       </div>
     </div>
     <div class="ctrls"><button class="btn sun" id="nextWhy">Give me another why</button><button class="btn ghost" id="todayWhy">Back to today's</button></div>
     </div>
     <aside class="sell"><div class="sticker">200+ answers</div><div class="cv"><img src="img/cover-big-book-of-why.jpg" alt="The Curious Kids Big Book of Why cover"></div>
       <h3>The Big Book of Why</h3><ul><li>200 questions answered</li><li>A drawing for every answer</li><li>Space, animals, bodies, weather</li></ul>
-      <a class="btn tom" href="https://www.amazon.com/dp/B0HJDYLGG1" target="_blank" rel="noopener">Get the book</a></aside>
+      <a class="btn tom" href="https://www.amazon.com/dp/B0HJDYLGG1?tag=gentlebooksho-20" target="_blank" rel="noopener">Get the book</a></aside>
     </div>
   </div>
 </section>
@@ -381,7 +381,7 @@ footer a{color:var(--muted)}
     </div>
     <aside class="sell"><div class="sticker" style="background:var(--lime)">Open if you dare!</div><div class="cv"><img src="img/cover-gross-book-of-why.jpg" alt="The Gross Book of Why cover"></div>
       <h3>The Gross Book of Why</h3><ul><li>150 revolting questions</li><li>Real science, really gross</li><li>A quiz at the end of every section</li></ul>
-      <a class="btn lime" href="https://www.amazon.com/dp/B0HHZTLVH3" target="_blank" rel="noopener">Get the book</a></aside>
+      <a class="btn lime" href="https://www.amazon.com/dp/B0HHZTLVH3?tag=gentlebooksho-20" target="_blank" rel="noopener">Get the book</a></aside>
     </div>
   </div>
 </section>
@@ -402,7 +402,7 @@ footer a{color:var(--muted)}
     <div style="max-width:760px;margin:80px auto 0"><aside class="sell wide">
       <div class="sticker" style="background:var(--grape)">100 adventures</div><div class="cv"><img src="img/cover-big-book-of-what-if.jpg" alt="The Big Book of What If cover"></div>
       <div><h3>The Big Book of What If?</h3><ul><li>Space, oceans, jungles, volcanoes</li><li>Full colour on every page</li><li>True-or-false quiz on each adventure</li></ul>
-      <a class="btn grape" href="https://www.amazon.com/dp/B0HJND6SVK" target="_blank" rel="noopener">Get the book</a></div></aside></div>
+      <a class="btn grape" href="https://www.amazon.com/dp/B0HJND6SVK?tag=gentlebooksho-20" target="_blank" rel="noopener">Get the book</a></div></aside></div>
   </div>
 </section>
 
@@ -437,7 +437,7 @@ footer a{color:var(--muted)}
 <footer><div class="wrap">
   Made by <a href="https://ainjection.github.io/gentle-bookshop/">The Gentle Bookshop</a> &middot; <a href="https://ainjection.github.io/">All our shelves</a> &middot; <a href="https://ainjection.github.io/halloween-books/">Halloween</a> &middot; <a href="https://ainjection.github.io/christmas-books/">Christmas</a><br>
   <span style="font-size:.85rem">Answers on this page are short versions from the books. Every book is printed and shipped by Amazon.</span>
-</div></footer>
+</div><p class="amzn-disclosure" style="font-size:12px;opacity:.7;margin:18px 0 0">As an Amazon Associate I earn from qualifying purchases.</p></footer>
 
 <a class="btn tom float" href="#books">Get the books</a>
 <script src="track.js" defer></script>
@@ -457,9 +457,9 @@ footer a{color:var(--muted)}
   const BG = ['ck8','ck14','ck16','ck20','ck22','ck28','ck40','ck66','ck76','ck78','ck80','ck82','wi6','wi16','wi26','wi36','wi46','wi56','wi66','wi76'];
   const shuf = a => [...a].sort(() => Math.random() - .5);
   ['#r1', '#r2', '#r3'].forEach(r => { const l = shuf(BG).slice(0, 8); $(r).innerHTML = [...l, ...l].map(b => `<img src="bg/${b}.jpg" alt="" loading="lazy">`).join(''); });
-  const WI = BG.filter(b => b.startsWith('wi')); $('#wstrip').innerHTML = [...WI, ...WI].map(b => `<a href="https://www.amazon.com/dp/B0HJND6SVK" target="_blank" rel="noopener" aria-label="See The Big Book of What If on Amazon"><img src="bg/${b}.jpg" alt=""></a>`).join('');
+  const WI = BG.filter(b => b.startsWith('wi')); $('#wstrip').innerHTML = [...WI, ...WI].map(b => `<a href="https://www.amazon.com/dp/B0HJND6SVK?tag=gentlebooksho-20" target="_blank" rel="noopener" aria-label="See The Big Book of What If on Amazon"><img src="bg/${b}.jpg" alt=""></a>`).join('');
   const FAN = [['big-book-of-why-little-ones', 'B0HKBW1Q8G'], ['gross-book-of-why', 'B0HHZTLVH3'], ['big-book-of-why', 'B0HJDYLGG1'], ['big-book-of-what-if', 'B0HJND6SVK'], ['big-book-of-why-curious-kids', 'B0HKDKKWJ2'], ['bug-facts', 'B0HJP8829L']];
-  $('#fan').innerHTML = FAN.map(([s, a], i) => `<a href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener" style="transform:rotate(${(i - 2.5) * 8}deg) translateY(${Math.abs(i - 2.5) * 10}px);animation-delay:${-i * .5}s"><img src="img/cover-${s}.jpg" alt="${s.replace(/-/g, ' ')} cover"></a>`).join('');
+  $('#fan').innerHTML = FAN.map(([s, a], i) => `<a href="https://www.amazon.com/dp/${a}?tag=gentlebooksho-20" target="_blank" rel="noopener" style="transform:rotate(${(i - 2.5) * 8}deg) translateY(${Math.abs(i - 2.5) * 10}px);animation-delay:${-i * .5}s"><img src="img/cover-${s}.jpg" alt="${s.replace(/-/g, ' ')} cover"></a>`).join('');
   const cv = $('#stars'), c2 = cv.getContext('2d'); let st = [];
   const size = () => { cv.width = cv.offsetWidth; cv.height = cv.offsetHeight; st = [...Array(Math.round(cv.width * cv.height / 3500))].map(() => ({ x: Math.random() * cv.width, y: Math.random() * cv.height, r: Math.random() * 1.6 + .3, p: Math.random() * 6.3 })); };
   size(); addEventListener('resize', size);
@@ -622,7 +622,7 @@ footer a{color:var(--muted)}
              ['bug-facts', 'B0HJP8829L', '500 Gross and Amazing Bug Facts', '500 bug facts, ages 5 to 10']];
   const RIB = {'big-book-of-why': 'Bestseller', 'gross-book-of-why': 'Kids love it', 'big-book-of-why-little-ones': 'Ages 2 to 5', 'big-book-of-why-curious-kids': 'New', 'big-book-of-what-if': 'Full colour', 'bug-facts': 'New'};
   $('#shelf').innerHTML = B.map(([s, a, n, w]) => `<div class="book"><span class="rib">${RIB[s]}</span><img src="img/cover-${s}.jpg" alt="${n} cover" loading="lazy"><b>${n}</b><span>${w}</span>
-    ${a ? `<a class="btn tom" href="https://www.amazon.com/dp/${a}" target="_blank" rel="noopener">See it on Amazon</a>` : `<a class="btn ghost" href="https://ainjection.github.io/gentle-bookshop/books/${s}.html">Look inside</a>`}</div>`).join('');
+    ${a ? `<a class="btn tom" href="https://www.amazon.com/dp/${a}?tag=gentlebooksho-20" target="_blank" rel="noopener">See it on Amazon</a>` : `<a class="btn ghost" href="https://ainjection.github.io/gentle-bookshop/books/${s}.html">Look inside</a>`}</div>`).join('');
 })();
 </script>
 </body>
